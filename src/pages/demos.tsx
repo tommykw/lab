@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Button from '@material-ui/core/Button'
 import styled from 'styled-components'
 
 const Header = styled.header`
@@ -20,29 +21,6 @@ const Wrapper = styled.div`
   top: 3rem;
 `
 
-const TextArea = styled.textarea`
-  border-right: 1px solid silver;
-  border-top: 1px solid silver;
-  bottom: 0;
-  font-size: 1rem;
-  left: 0;
-  padding: 0.5rem;
-  position: absolute;
-  top: 0;
-  width: 50vw;
-`
-
-const Preview = styled.div`
-  border-top: 1px solid silver;
-  bottom: 0;
-  overflow-y: scroll;
-  padding: 1rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 50vw;
-`
-
 export const Demos: React.FC = () => {
   return (
     <>
@@ -50,8 +28,9 @@ export const Demos: React.FC = () => {
         Lab
       </Header>
       <Wrapper>
-        <TextArea value="a" />
-        <Preview>プレビュー</Preview>
+        <Button variant="contained" color="primary">
+          Hello World
+        </Button>
       </Wrapper>
     </>
   )
