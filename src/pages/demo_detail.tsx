@@ -21,7 +21,7 @@ const Wrapper = styled.div`
   top: 3rem;
 `
 
-export const DemoDetail: React.FC = () => {
+export const DemoDetail: React.FC = () => { 
     return (
       <>
         <Header>
