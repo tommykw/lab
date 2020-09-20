@@ -1,23 +1,23 @@
 import * as React from 'react'
 import { render } from 'react-dom'
 import { Route, HashRouter as Router, Switch, Redirect } from 'react-router-dom'
-import { DemoDetail } from './pages/demo_detail'
+import { DemoSample } from './pages/demo_sample'
 import { Demos } from './pages/demos'
+import { DemoKmm } from './pages/demo_kmm'
 
 const Main = (
   <>
     <Router>
       <Switch>
         <Route exact path="/demos">
-          <Demos>
-            aaaaaaaaaa
-          </Demos>
+          <Demos /> 
         </Route>
-        <Route exact path="/detail">
-          <DemoDetail>
-            jkfdajfkladsfjkdasl
-            </DemoDetail>
+        <Route exact path="/demo/sample">
+          <DemoSample />
         </Route>      
+        <Route exact path="/demo/kmm">
+          <DemoKmm />
+        </Route>
         <Redirect to="/demos" path="*" />
       </Switch>
     </Router>  

@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(8),
     },
     card: {
-      height: '100%',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -27,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: '56.25%',
     },
     cardContent: {
+      height: '10rem',
       flexGrow: 1,
     },
     footer: {
@@ -40,18 +40,39 @@ const StyledLink = styled(Link)`
   color: inherit;
 `
 
-const cards = [1,2,3,4,5,6,7,8,9]
+enum DemoType {
+  Kmm = 'kmm',
+  Sample = 'sample'
+} 
+
+const cards = [
+  { heading: 'kmm', description: 'kmm', type: DemoType.Kmm, image_url: ''},
+  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
+  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
+  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
+  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
+  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
+  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
+  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''}
+]
+
+interface DemoContent {
+  heading: string,
+  description: string,
+  type: DemoType,
+  image_url: string
+}
 
 export const CardLayout: React.FC = () => {
     const classes = useStyles()
-    
+
     return (
         <>
         <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {cards.map(card => (
+              <Grid item key={card.heading} xs={12} sm={6} md={4}>
                 <Card>
-                  <StyledLink to="/detail">
+                  <StyledLink to={`/demo/${card.type}`}>
                   <CardMedia
                     className={classes.cardMedia}
                     image=""
@@ -59,10 +80,10 @@ export const CardLayout: React.FC = () => {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      {card.heading}
                     </Typography>
                     <Typography>
-                      This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.
+                    {card.description}
                     </Typography>
                   </CardContent>
 

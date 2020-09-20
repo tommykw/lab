@@ -1,38 +1,29 @@
-import * as React from 'react'
+import * as React from "react"
 import { ThemeProvider } from 'styled-components'
 import Theme from '../components/Theme'
-import CardLayout from '../components/CardLayout'
 import { CssBaseline, Container, Typography, Box, AppBar, Toolbar } from '@material-ui/core'
-import { Copyright } from '../components/Copyright'
 
-export const Demos: React.FC = () => {
-  return (
-    <>
-    <ThemeProvider theme={Theme}>
+export const DemoKmm: React.FC = () => { 
+    return (
+      <>
+      <ThemeProvider theme={Theme}>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            {"Tommykw's Lab"}
+            {"KMM"}
           </Typography>
         </Toolbar>
       </AppBar>
       <Container maxWidth="sm">
         <Box my={4}>
           <Typography variant="h4" component="h1" gutterBottom>
-            {"Welcome to Tommykw's Lab. This lab provides a hands-on coding experience."}
+            {"KMM"}
           </Typography>
         </Box>
       </Container>
-      <Container maxWidth="md">
-        <Box my={4}>
-          <CardLayout/>
-        </Box>
-        <Box my={4}>
-          <Copyright />
-        </Box>
-      </Container>
     </ThemeProvider>
-    </>
-  )
-}
+      </>
+    )
+  }
+  
