@@ -12,10 +12,10 @@ const Main = (
         <Route exact path="/demos">
           <Demos /> 
         </Route>
-        <Route exact path="/demo/sample">
+        <Route exact path="/demos/sample">
           <DemoSample />
         </Route>      
-        <Route exact path="/demo/kmm">
+        <Route exact path="/demos/kmm">
           <DemoKmm />
         </Route>
         <Redirect to="/demos" path="*" />

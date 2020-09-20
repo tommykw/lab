@@ -11,7 +11,7 @@ export const DemoSample: React.FC = () => {
       <AppBar position="relative">
         <Toolbar>
           <Typography variant="h6" color="inherit" noWrap>
-            {"This is a demo"}
+            {"Demo sample"}
           </Typography>
         </Toolbar>
       </AppBar>

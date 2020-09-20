@@ -46,14 +46,14 @@ enum DemoType {
 } 
 
 const cards = [
-  { heading: 'kmm', description: 'kmm', type: DemoType.Kmm, image_url: ''},
-  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
-  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
-  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
-  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
-  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
-  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''},
-  { heading: 'This is a demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: ''}
+  { heading: 'Create my first KMM', description: 'Work on the KMM(Kotlin Multiplatform Mobile) app for the first time.', type: DemoType.Kmm, image_url: 'https://raw.githubusercontent.com/tommykw/lab/afcde6b97c75efbfd897520f8ec7d7504b7115d7/src/public/kmm.png'},
+  { heading: 'Demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'},
+  { heading: 'Demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'},
+  { heading: 'Demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'},
+  { heading: 'Demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'},
+  { heading: 'Demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'},
+  { heading: 'Demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'},
+  { heading: 'Demo card', description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', type: DemoType.Sample, image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'}
 ]
 
 interface DemoContent {
@@ -72,10 +72,10 @@ export const CardLayout: React.FC = () => {
             {cards.map(card => (
               <Grid item key={card.heading} xs={12} sm={6} md={4}>
                 <Card>
-                  <StyledLink to={`/demo/${card.type}`}>
+                  <StyledLink to={`/demos/${card.type}`}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image=""
+                    image={card.image_url}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
