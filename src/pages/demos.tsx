@@ -1,37 +1,38 @@
 import * as React from 'react'
-import Button from '@material-ui/core/Button'
-import styled from 'styled-components'
-
-const Header = styled.header`
-  font-size: 1.5rem;
-  height: 2rem;
-  left: 0;
-  line-height: 2rem;
-  padding: 0.5rem 1rem;
-  position: fixed;
-  right: 0;
-  top: 0;
-`
-
-const Wrapper = styled.div`
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 3rem;
-`
+import { ThemeProvider } from 'styled-components'
+import Theme from '../components/Theme'
+import CardLayout from '../components/CardLayout'
+import { CssBaseline, Container, Typography, Box, AppBar, Toolbar } from '@material-ui/core'
+import { Copyright } from '../components/Copyright'
 
 export const Demos: React.FC = () => {
   return (
     <>
-      <Header>
-        Lab
-      </Header>
-      <Wrapper>
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
-      </Wrapper>
+    <ThemeProvider theme={Theme}>
+      <CssBaseline />
+      <AppBar position="relative">
+        <Toolbar>
+          <Typography variant="h6" color="inherit" noWrap>
+            {"Tommykw's Lab"}
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container maxWidth="sm">
+        <Box my={4}>
+          <Typography variant="h4" component="h1" gutterBottom>
+            {"Welcome to Tommykw's Lab. This lab provides a hands-on coding experience."}
+          </Typography>
+        </Box>
+      </Container>
+      <Container maxWidth="md">
+        <Box my={4}>
+          <CardLayout/>        
+        </Box>
+        <Box my={4}>
+          <Copyright />
+        </Box>
+      </Container>
+    </ThemeProvider>
     </>
   )
 }

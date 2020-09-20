@@ -1,5 +1,7 @@
 import { makeStyles, Typography, Grid, CardMedia, CardContent, Card } from "@material-ui/core"
 import * as React from "react"
+import { Link } from "react-router-dom"
+import styled from 'styled-components'
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -33,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
+
 const cards = [1,2,3,4,5,6,7,8,9]
 
 export const CardLayout: React.FC = () => {
@@ -44,6 +51,7 @@ export const CardLayout: React.FC = () => {
             {cards.map((card) => (
               <Grid item key={card} xs={12} sm={6} md={4}>
                 <Card>
+                  <StyledLink to="/detail">
                   <CardMedia
                     className={classes.cardMedia}
                     image=""
@@ -57,6 +65,8 @@ export const CardLayout: React.FC = () => {
                       This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.
                     </Typography>
                   </CardContent>
+
+                  </StyledLink>
                 </Card>
               </Grid>
             ))}
