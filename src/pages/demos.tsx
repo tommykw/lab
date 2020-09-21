@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { ThemeProvider } from 'styled-components'
-import Theme from '../components/Theme'
-import CardLayout from '../components/CardLayout'
+import Theme from '../components/theme'
+import CardLayout from '../components/card_layout'
 import { CssBaseline, Container, Typography, Box, AppBar, Toolbar } from '@material-ui/core'
-import { Copyright } from '../components/Copyright'
+import { Copyright } from '../components/copyright'
 
 export const Demos: React.FC = () => {
   return (
