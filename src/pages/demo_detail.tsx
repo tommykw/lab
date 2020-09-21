@@ -1,52 +1,34 @@
 import * as React from "react"
+import { useState } from 'react'
 import * as MarkDown1 from 'react-markdown'
 import { ThemeProvider } from 'styled-components'
 import Theme from '../components/Theme'
-import { CssBaseline, Link, Container, Typography, Box, AppBar, Toolbar, Grid, makeStyles, Paper, Divider } from '@material-ui/core'
+import { CssBaseline, Container, Typography, AppBar, Toolbar, Grid, makeStyles, Divider, Box } from '@material-ui/core'
 import { useParams } from "react-router-dom"
-import { Copyright } from "../components/Copyright"
+import { cards } from "../components/CardLayout"
 
-const useStyles2 = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
     mainGrid: {
-        marginTop: theme.spacing(3)
+        marginTop: theme.spacing(2)
     }
 }))
 
-const useStyles = makeStyles((theme) => ({
-    mainFeaturedPost: {
-      position: 'relative',
-      backgroundColor: theme.palette.grey[800],
-      color: theme.palette.common.white,
-      marginBottom: theme.spacing(4),
-      backgroundImage: 'url(https://source.unsplash.com/random)',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-    },
-    overlay: {
-      position: 'absolute',
-      top: 0,
-      bottom: 0,
-      right: 0,
-      left: 0,
-      backgroundColor: 'rgba(0,0,0,.3)',
-    },
-    mainFeaturedPostContent: {
-      position: 'relative',
-      padding: theme.spacing(3),
-      [theme.breakpoints.up('md')]: {
-        padding: theme.spacing(6),
-        paddingRight: 0,
-      },
-    },
-  }));
-  
 export const DemoDetail: React.FC = () => { 
+    const [markdownSource, setMarkdownSource] = useState('')
     const { demoType } = useParams()
     const classes = useStyles()
-    const classes2 = useStyles2()
 
-    console.log(demoType)
+    const targetCard = cards.find(card => (
+        card.type == demoType
+    ))
+
+    if (targetCard == null) {
+        return
+    }
+
+    fetch("https://raw.githubusercontent.com/tommykw/lab/c5266724afd18e3219aeb7cdc4e120a6adfd8245/src/post/post_sample.md")
+        .then(res => res.text())
+        .then(result => setMarkdownSource(result))
 
     return (
       <>
@@ -60,17 +42,16 @@ export const DemoDetail: React.FC = () => {
         </Toolbar>
       </AppBar>
       <Container maxWidth="lg">
-          <main>
-      <Grid container spacing={6} className={classes2.mainGrid}>
-      <Grid item xs={6} md={8}>
+      <Grid container spacing={6} className={classes.mainGrid}>
+      <Grid item xs={6} md={12}>
       <Typography variant="h2" gutterBottom>
-        {'From the firehose'}
+        {targetCard.heading}
       </Typography>
       <Divider />
-      <MarkDown1 source="# Your markdown here" />,
+
+      <MarkDown1 source={markdownSource}/>
     </Grid>
       </Grid>
-          </main>
       </Container>
     </ThemeProvider>
       </>
