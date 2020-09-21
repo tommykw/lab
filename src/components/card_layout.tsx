@@ -1,5 +1,8 @@
 import { makeStyles, Typography, Grid, CardMedia, CardContent, Card } from "@material-ui/core"
 import * as React from "react"
+import { Link } from "react-router-dom"
+import styled from 'styled-components'
+import { DemoCards } from "../models/demo_card"
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -17,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(8),
     },
     card: {
-      height: '100%',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -25,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: '56.25%',
     },
     cardContent: {
+      height: '10rem',
       flexGrow: 1,
     },
     footer: {
@@ -33,30 +36,36 @@ const useStyles = makeStyles((theme) => ({
     },
 }))
 
-const cards = [1,2,3,4,5,6,7,8,9]
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+`
 
 export const CardLayout: React.FC = () => {
     const classes = useStyles()
-    
+
     return (
         <>
         <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {DemoCards.map(card => (
+              <Grid item key={card.heading} xs={12} sm={6} md={4}>
                 <Card>
+                  <StyledLink to={`/demos/${card.type}`}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image=""
+                    image={card.image_url}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      {card.heading}
                     </Typography>
                     <Typography>
-                      This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.
+                    {card.description}
                     </Typography>
                   </CardContent>
+
+                  </StyledLink>
                 </Card>
               </Grid>
             ))}
