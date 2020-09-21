@@ -3,9 +3,10 @@ import { useState } from 'react'
 import * as MarkDown from 'react-markdown'
 import { ThemeProvider } from 'styled-components'
 import Theme from '../components/theme'
-import { CssBaseline, Container, Typography, AppBar, Toolbar, Grid, makeStyles, Divider } from '@material-ui/core'
+import { CssBaseline, Container, Typography, AppBar, Toolbar, Grid, makeStyles, Divider, Box } from '@material-ui/core'
 import { useParams } from "react-router-dom"
 import { DemoCards } from "../models/demo_card"
+import { Copyright } from "../components/copyright"
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
@@ -26,7 +27,7 @@ export const DemoDetail: React.FC = () => {
         return
     }
 
-    fetch("https://raw.githubusercontent.com/tommykw/lab/c5266724afd18e3219aeb7cdc4e120a6adfd8245/src/post/post_sample.md")
+    fetch(`https://raw.githubusercontent.com/tommykw/lab/master/src/post/post_${targetCard.type}.md`)
         .then(res => res.text())
         .then(result => setMarkdownSource(result))
 
@@ -52,6 +53,9 @@ export const DemoDetail: React.FC = () => {
             </Grid>
           </Grid>
         </Container>
+        <Box my={12}>
+          <Copyright />
+        </Box>
       </ThemeProvider>
       </>
     )

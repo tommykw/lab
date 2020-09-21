@@ -1,7 +1,8 @@
 ## What is KMM?
 Kotlin Multiplatform Mobile(KMM) is an SDK that allows you to use the same business logic in both iOS and Android applications. It's still alpha.
 
-The advantage is that you can share your mobile business logic.
+The advantage is that you can share your mobile business logic. Another advantage is that the time to implement the logic has been halved.
+It will reduce the implementation omissions of Android / iOS and make it easier to aim for updates at the same pace.
 
 ## Set up KMM
 - Install Android Studio version 4.1 (RC 1 or higher).
