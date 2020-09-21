@@ -2,6 +2,7 @@ import { makeStyles, Typography, Grid, CardMedia, CardContent, Card } from "@mat
 import * as React from "react"
 import { Link } from "react-router-dom"
 import styled from 'styled-components'
+import { DemoCards } from "../models/demo_card"
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -40,70 +41,13 @@ const StyledLink = styled(Link)`
   color: inherit;
 `
 
-enum DemoType {
-  Kmm = 'kmm',
-  Sample = 'sample'
-} 
-
-export const cards = [
-  { 
-    heading: 'Create my first KMM', 
-    description: 'Work on the KMM(Kotlin Multiplatform Mobile) app for the first time.', 
-    type: DemoType.Kmm, 
-    image_url: 'https://raw.githubusercontent.com/tommykw/lab/afcde6b97c75efbfd897520f8ec7d7504b7115d7/src/public/kmm.png'
-  },
-  { 
-    heading: 'Demo card', 
-    description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', 
-    type: DemoType.Sample, 
-    image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'
-  },
-  { 
-    heading: 'Demo card', 
-    description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', 
-    type: DemoType.Sample, 
-    image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'
-  },
-  { 
-    heading: 'Demo card', 
-    description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', 
-    type: DemoType.Sample, 
-    image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'
-  },
-  { 
-    heading: 'Demo card', 
-    description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', 
-    type: DemoType.Sample, 
-    image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'
-  },
-  { 
-    heading: 'Demo card', 
-    description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', 
-    type: DemoType.Sample, 
-    image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'
-  },
-  { 
-    heading: 'Demo card', 
-    description: 'This is a demo card. This is a demo card. This is a demo card. This is a demo card. This is a demo card.', 
-    type: DemoType.Sample, 
-    image_url: 'https://raw.githubusercontent.com/tommykw/lab/173b630a47759f0593c4efc660ea496dc3f995b2/src/public/sample.png'
-  }
-]
-
-interface DemoContent {
-  heading: string,
-  description: string,
-  type: DemoType,
-  image_url: string
-}
-
 export const CardLayout: React.FC = () => {
     const classes = useStyles()
 
     return (
         <>
         <Grid container spacing={4}>
-            {cards.map(card => (
+            {DemoCards.map(card => (
               <Grid item key={card.heading} xs={12} sm={6} md={4}>
                 <Card>
                   <StyledLink to={`/demos/${card.type}`}>

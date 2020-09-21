@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import Theme from '../components/theme'
 import { CssBaseline, Container, Typography, AppBar, Toolbar, Grid, makeStyles, Divider } from '@material-ui/core'
 import { useParams } from "react-router-dom"
-import { cards } from "../components/card_layout"
+import { DemoCards } from "../models/demo_card"
 
 const useStyles = makeStyles((theme) => ({
     mainGrid: {
@@ -18,7 +18,7 @@ export const DemoDetail: React.FC = () => {
     const { demoType } = useParams()
     const classes = useStyles()
 
-    const targetCard = cards.find(card => (
+    const targetCard = DemoCards.find(card => (
         card.type == demoType
     ))
 
